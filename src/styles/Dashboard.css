@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
-    z-index: 1500;
+    z-index: 2;
     animation: slide-in2 0.3s ease-in-out;
   }
 
@@ -57,12 +57,22 @@
     width: 75%;
     padding: 5% 5%;
   }
+  input{
+    width: 20%;
+  }
   .input2{
     flex-grow: 1;
   }
   .content h2 {
+    width: 100%;
+    display: flex;
     font-size: 1.5rem;
     margin-bottom: 20px;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: start;
   }
   .create{
     display: flex;
@@ -85,7 +95,9 @@
   }
   
   .content button {
-    padding: 10px 15px;
+    padding: 1px 15px;
+    height: 40px;
+    line-height: 1;
   }
   
   .content ul {
@@ -95,5 +107,77 @@
   
   .content ul li {
     margin-bottom: 10px;
+    height: 40px;
+    background-color: #292828;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2rem;
+  }
+  .positions-table,.elections-table,.candidates-table{
+    width: 100%;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  table th{
+    font-size: 1.4rem;
+  }
+  table tr{
+    height: 40px;
+  }
+  .actions_btn{
+   display: flex;
+   justify-content: space-around;
+  }
+  .actions_btn button{
+    background-color: #29292f;
+  }
+  table tr:nth-child(even) {
+    background-color: #3a3a3a;
+  }
+
+  table tr:nth-child(odd) {
+    background-color: #2d2d2d;
+  }
+  .overlay{
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 2;
+    height: 100vh;
+    background-color: #00000082;
+    backdrop-filter: blur(1px);
+  }
+  .edit-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    color: wheat;
+    border: none;
+    transform: translate(-50%, -50%);
+    background: #2d2d2d;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+  }
+  .edit-dialog h3 {
+    margin-bottom: 10px;
+  }
+  .edit-dialog label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .edit-dialog input {
+    width: 90%;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 8px;
+  }
+  .edit-dialog button {
+    margin-right: 10px;
   }
   

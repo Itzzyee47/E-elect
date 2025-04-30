@@ -15,31 +15,41 @@ const VotingPage = () => {
     const [message, setMessage] = useState('');
 
     const fetchElections = async (value) => {
+        try {
             const { data, error } = await supabase.from('elections').select('*')
                 .eq('name', value);
-                if (!error) {
-                    console.log(value, data);
-                    setElections(data);
-                    //console.log(data[0]['id']);
-                    //setSelectedElection(data[0]['id']);
-                }else if(error){
-                    setMessage(error);
-                }
-            };
+            if (error) throw error;
             
-    const fetchPositions = async (elections) => {
-        const { data, error }= await supabase.from('positions')
-        .select('*')
-        .eq('election_id', elections[0]['id']);
-        if (!error){
-            setPositions(data);
-            //setElections([]);
-            //alert(` There was an error connecting to database ${error}`);
-        }else if(data == []){
-            setMessage('There was an error', error);
-            console.log(data);
+            if (data && data.length > 0) {
+                setElections(data);
+                // Fetch positions immediately after getting elections
+                await fetchPositions(data[0].id);
+            } else {
+                setMessage('No election found with that name');
+            }
+        } catch (error) {
+            setMessage(error.message);
         }
     };
+    
+    const fetchPositions = async (electionId) => {
+        try {
+            const { data, error } = await supabase.from('positions')
+                .select('*')
+                .eq('election_id', electionId);
+            if (error) throw error;
+            
+            if (data && data.length > 0) {
+                setPositions(data);
+            } else {
+                setPositions([]);
+                setMessage('No positions found for this election');
+            }
+        } catch (error) {
+            setMessage(error.message);
+        }
+    };
+    
 
     const handleSelectCandidate = (candidate) => {
         setSelectedCandidates((prev) => ({

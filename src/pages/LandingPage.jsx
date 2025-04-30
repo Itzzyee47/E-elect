@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import '../styles/LandingPage.css';
 
+
 const LandingPage = () => {
     return (
         <div className="landing-page">
@@ -32,24 +33,46 @@ const LandingPage = () => {
                     </div>
                     <div className="actions">
                         <div className="action">
+                            <i className="fas fa-tachometer-alt"></i>
                             <h3>Comprehensive Organisational Dashboard for Administrators</h3>
                             <p>
                                 Easily create and manage elections with our intuitive dashboard.
                             </p>
                         </div>
                         <div className="action">
+                            <i className="fas fa-vote-yea"></i>
                             <h3>Simple and Secure User Voting Experience</h3>
                             <p>
                                Cast your vote effortlessly with just a few clicks.
                             </p>
                         </div>
                         <div className="action">
+                            <i className="fas fa-cogs"></i>
                             <h3>Efficient Election Management for All Types</h3>
                             <p>
                                 Manage candidates and positions with ease and presision.
                             </p>
                         </div>
                     </div>
+                </div>
+                <div className="faq-section">
+                    <h2 style={{ width: '100%' }}>Frequently Asked Questions</h2>
+                    <details className="faq-item">
+                        <summary>How secure is the e-voting platform?</summary>
+                        <p>Our platform uses state-of-the-art encryption and security measures to ensure your vote remains confidential and tamper-proof.</p>
+                    </details>
+                    <details className="faq-item">
+                        <summary>Can I create multiple elections simultaneously?</summary>
+                        <p>Yes, administrators can create and manage multiple elections at the same time through our user-friendly dashboard.</p>
+                    </details>
+                    <details className="faq-item">
+                        <summary>How do I verify my vote was counted?</summary>
+                        <p>Each vote is recorded with a unique identifier, allowing voters to verify their vote while maintaining anonymity.</p>
+                    </details>
+                    <details className="faq-item">
+                        <summary>What types of elections can be conducted?</summary>
+                        <p>Our platform supports various election types, including single-choice, multiple-choice, and ranked-choice voting systems.</p>
+                    </details>
                 </div>
             </main>
             <Footer />
